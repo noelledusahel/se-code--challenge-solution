@@ -9,17 +9,25 @@ import NotFoundPage from '../components/NotFoundPage';
 export default class AppRouter extends React.Component {
 
   state = {
-    imageUrl: undefined
+    latestImage: {
+      imageUrl: 'https://xkcd.now.sh/?comic=latest',
+      alt: 'Dog',
+      title: 'Cat'
+    }
   }
 
   fetchLatest = () => {
     fetch('https://xkcd.now.sh/?comic=latest')
-      .then(response => response.json())
-      .then((image) => {
-        this.setState(() => ({
-          imageUrl: image.img
-        }))
-      })
+    .then(response => response.json())
+    .then((image) => {
+      this.setState(() => ({
+        latestImage: {
+          imageUrl: image.img,
+          alt: image.title,
+          title: image.alt
+        }
+      }))
+    })
   };
 
   render() {
@@ -28,7 +36,8 @@ export default class AppRouter extends React.Component {
         <div>
           <Header
            fetchLatest={this.fetchLatest}
-          ></Header>
+           latestImage={this.state.latestImage}>
+          </Header>
           <Switch>
             <Route path="/" component={HomePage} exact={true}/>
             <Route path="/search" component={SearchPage}/>
