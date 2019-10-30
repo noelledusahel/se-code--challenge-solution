@@ -1,11 +1,13 @@
 import React from 'react';
+import AppRouter from './routers/AppRouter'
 
-function App() {
-  return (
-    <div>
-      <p>Hello World!</p>
-    </div>
-  );
+export default class App extends React.Component {
+
+  render()  {
+    return (
+      <AppRouter/>
+    )
+  }
 }
 
-export default App;
+// export default App;
