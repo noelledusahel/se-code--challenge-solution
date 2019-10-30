@@ -1,20 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = (props) => (
   <header>
-    <NavLink
+    <Link
       to ={{
         pathname:'/',
         state:{
           imageInfo: props.latestImage
         }
       }}
-      activeClassName="is-active"
-      exact={true}
-      onClick={props.fetchLatest}>Latest
-    </NavLink>&nbsp;
-    <NavLink to="/search" activeClassName="is-active">Search</NavLink>&nbsp;
+      onClick={props.componentDidMount}
+      className="latest">Latest
+    </Link>&nbsp;
+    <Link
+      to="/search"
+      className="search">Search
+    </Link>&nbsp;
   </header>
 )
 
