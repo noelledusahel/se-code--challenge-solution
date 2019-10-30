@@ -1,0 +1,21 @@
+* {
+  padding-left: 4px;
+}
+
+.searchSubmit {
+  background-color: orange;
+  font-weight: bold;
+}
+
+.latestImage, .searchImage {
+  margin-top: 5px;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 1em;
+}
+
+.is-active {
+  font-weight: bold;
+}

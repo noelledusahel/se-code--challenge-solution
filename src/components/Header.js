@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Header = (props) => (
   <header>
-    <Link
+    <NavLink
       to ={{
         pathname:'/',
         state:{
@@ -11,12 +11,15 @@ const Header = (props) => (
         }
       }}
       onClick={props.componentDidMount}
-      className="latest">Latest
-    </Link>&nbsp;
-    <Link
+      className="latest"
+      exact={true}
+      activeClassName="is-active">Latest
+    </NavLink>&nbsp;
+    <NavLink
       to="/search"
-      className="search">Search
-    </Link>&nbsp;
+      className="search"
+      activeClassName="is-active">Search
+    </NavLink>&nbsp;
   </header>
 )
 

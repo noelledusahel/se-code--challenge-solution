@@ -33,7 +33,8 @@ export default class SearchPage extends React.Component {
             searchImage: {
               imageUrl: data.img,
               alt: data.title,
-              title: data.alt
+              title: data.alt,
+              date: `${data.month}/${data.day}/${data.year}`
           }
         }))
       })
@@ -46,15 +47,21 @@ export default class SearchPage extends React.Component {
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.handleSearch}>
           <input
-            type="text" className="searchInput" name="searchInput">
-          </input>
+            type="text"
+            className="searchInput"
+            name="searchInput"
+            >
+          </input>&nbsp;
           <button className="searchSubmit">Submit</button>
         </form>
+
+        <h4>{this.state.searchImage.date}</h4>
         <img
           className="searchImage"
           src={this.state.searchImage.imageUrl}
           title={this.state.searchImage.alt}
-          alt={this.state.searchImage.title}/>
+          alt={this.state.searchImage.title}
+          />
         </div>
   )}
 }

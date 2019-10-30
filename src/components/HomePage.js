@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 export default class HomePage extends React.Component {
   state = {
     latestImage: {}
@@ -14,7 +13,8 @@ export default class HomePage extends React.Component {
           latestImage: {
             imageUrl: data.img,
             alt: data.title,
-            title: data.alt
+            title: data.alt,
+            date: `${data.month}/${data.day}/${data.year}`
           }
         })
       )})
@@ -22,11 +22,14 @@ export default class HomePage extends React.Component {
   }
   render() {
     return (
-      <img
-        className="latestImage"
-        src={this.state.latestImage.imageUrl}
-        title={this.state.latestImage.alt}
-        alt={this.state.latestImage.title}/>
+      <div>
+        <h4>{this.state.latestImage.date}</h4>
+        <img
+          className="latestImage"
+          src={this.state.latestImage.imageUrl}
+          title={this.state.latestImage.alt}
+          alt={this.state.latestImage.title}/>
+      </div>
     )
   }
 }
